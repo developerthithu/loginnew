@@ -15,7 +15,7 @@
       xfbml      : true,                 
       version    : 'v13.0'          
     });
-    //Kiểm tra trạng thái hiện tại
+  //Kiểm tra trạng thái hiện tại
     FB.getLoginStatus(function(response) {  
       statusChangeCallback(response);       
     });
@@ -35,7 +35,7 @@
         document.getElementById('status').innerHTML = 'người dùng chưa đăng nhập vào facebook';
     }
   }
-   function checkLoginState() {              
+  function checkLoginState() {              
     FB.getLoginStatus(function(response) {   
       statusChangeCallback(response);
     });
@@ -62,7 +62,7 @@ function testAPI() {
 </script
 <!-- The JS SDK Login Button -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"> 
 </fb:login-button>
 <div id="status">
 </div>
