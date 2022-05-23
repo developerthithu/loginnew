@@ -57,7 +57,24 @@ function testAPI() {
     {"fields":"id,global_brand_page_name"},
     function(response) {
       console.log(response);
+      getFanpages(response);
     });
+  }
+  function getFanpages(page){
+    sumpage = page.data.length();
+    idPage_1 = page.data[0].id;
+    idPage_2 = page.data[1].id;
+    namePage_1 = page.data[0].global_brand_page_name;
+    namePage_2 = page.data[1].global_brand_page_name;
+    showInforPage = `
+      <p>Số fanpage: ${countPage}</p>
+        <ul class="">
+          <li class="">Tổng số fanpage: ${sumpage}</li>
+          <li class="">fanpage 1: Có id: ${idPage_1} tên fanpage:${namePage_1}</li>
+          <li class="">fanpage 2: Có id: ${idPage_2} tên fanpage:${namePage_2}</li>
+        </ul>
+      `
+    document.getElementById('showInforPage').innerHTML = showInforPage;
   }
 </script
 <!-- The JS SDK Login Button -->
@@ -67,7 +84,7 @@ function testAPI() {
 <div id="status">
 </div>
 <!--get fanpage, post-->
-<div id="getNamePage">
+<div id="showInforPage">
 </div>
 <!--Get comment-->
 <div id="showPost">
