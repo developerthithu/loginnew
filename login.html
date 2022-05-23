@@ -63,7 +63,7 @@ function testAPI() {
   }
   function getFanpages(page){
     sumpage = page.data.length;
-    var idPage_1 = page.data[0].id;
+    idPage_1 = page.data[0].id;
     idPage_2 = page.data[1].id;
     namePage_1 = page.data[0].global_brand_page_name;
     namePage_2 = page.data[1].global_brand_page_name;
@@ -77,11 +77,11 @@ function testAPI() {
       `
     document.getElementById('showInforPage').innerHTML = showInforPage;
   }
-  var idPage_1 = 100699045974748;
+  var idPage = idPage_1;
   function postAPI() {                      
     console.log('get post fanpage');
     FB.api(
-    '/'+ idPage_1 +'',
+    '/'+ idPage +'',
     'GET',
     {"fields":"posts{id,message,created_time}"},
     function(response) {
