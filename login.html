@@ -76,9 +76,12 @@ function testAPI() {
         </ul>
       `
     document.getElementById('showInforPage').innerHTML = showInforPage;
+    
   }
-  idPage = idPage_1;
-  function postAPI() {                      
+  
+  function postAPI() {    
+    getFanpages(page);
+    idPage = idPage_1;
     console.log('get post fanpage');
     FB.api(
     '/'+ idPage +'',
