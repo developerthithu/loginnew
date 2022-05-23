@@ -79,8 +79,8 @@ function testAPI() {
   }
   function postAPI() {                      
     console.log('get post fanpage');
-    FB.api(
     id = page.data[0].id;
+    FB.api(
     '/'+ id +'',
     'GET',
     {"fields":"posts{id,message,created_time}"},
