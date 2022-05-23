@@ -58,7 +58,6 @@ function testAPI() {
       console.log(response);
       getFanpages(response);
     });
-    postAPI();
   }
   function getFanpages(page){
     sumpage = page.data.length;
@@ -75,17 +74,6 @@ function testAPI() {
         </ul>
       `
     document.getElementById('showInforPage').innerHTML = showInforPage;
-  }
-  function postAPI() {    
-    console.log('get post fanpage');
-    FB.api(
-    '/'+ idPage_1 +'',
-    'GET',
-    {"fields":"posts{id,message,created_time}"},
-    function(response) {
-      // Insert your code here
-      console.log(response);
-    });
   }
 </script
 <!-- The JS SDK Login Button -->
