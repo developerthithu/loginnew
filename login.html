@@ -61,7 +61,7 @@ function testAPI() {
       getFanpages(response);
     });
   }
-  var idPage_1= '';
+  idPage_1= '';
   function getFanpages(page){
     sumpage = page.data.length;
     idPage_1 = page.data[0].id;
@@ -77,9 +77,7 @@ function testAPI() {
         </ul>
       `
     document.getElementById('showInforPage').innerHTML = showInforPage;
-    
   }
-  
   function postAPI() {    
     console.log('get post fanpage');
     FB.api(
