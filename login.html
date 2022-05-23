@@ -61,6 +61,7 @@ function testAPI() {
       getFanpages(response);
     });
   }
+  var idPage_1= '';
   function getFanpages(page){
     sumpage = page.data.length;
     idPage_1 = page.data[0].id;
@@ -80,11 +81,9 @@ function testAPI() {
   }
   
   function postAPI() {    
-    getFanpages(page);
-    idPage = idPage_1;
     console.log('get post fanpage');
     FB.api(
-    '/'+ idPage +'',
+    '/'+ idPage_1 +'',
     'GET',
     {"fields":"posts{id,message,created_time}"},
     function(response) {
