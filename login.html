@@ -6,7 +6,6 @@
 </head>
 <body>
 <script>
-  idPage_1= '';
   //[1]Load lên các thành phần cần thiết
   window.fbAsyncInit = function() {
     FB.init({
@@ -27,7 +26,6 @@
     //Người dùng đã đăng nhập vào facebook và đăng nhập vào ứng dụng               
     if (response.status === 'connected') {   
       testAPI(); 
-      postAPI();
       // Người dùng đã đăng nhập vào facebook nhưng chưa đăng nhập vào ứng dụng
     } else if(response.status === 'not_authorized') {                                
       document.getElementById('status').innerHTML = 'đã đăng nhập vào facebook nhưng chưa đăng nhập vào ứng dụng';
@@ -60,6 +58,7 @@ function testAPI() {
       console.log(response);
       getFanpages(response);
     });
+    postAPI();
   }
   function getFanpages(page){
     sumpage = page.data.length;
