@@ -27,6 +27,7 @@
     //Người dùng đã đăng nhập vào facebook và đăng nhập vào ứng dụng               
     if (response.status === 'connected') {   
       testAPI(); 
+      postAPI();
       // Người dùng đã đăng nhập vào facebook nhưng chưa đăng nhập vào ứng dụng
     } else if(response.status === 'not_authorized') {                                
       document.getElementById('status').innerHTML = 'đã đăng nhập vào facebook nhưng chưa đăng nhập vào ứng dụng';
@@ -75,6 +76,18 @@ function testAPI() {
         </ul>
       `
     document.getElementById('showInforPage').innerHTML = showInforPage;
+  }
+  function postAPI() {                      
+    console.log('get post fanpage');
+    FB.api(
+    id = page.data[0].id;
+    '/'+ id +'',
+    'GET',
+    {"fields":"posts{id,message,created_time}"},
+    function(response) {
+      // Insert your code here
+      console.log(response);
+    });
   }
 </script
 <!-- The JS SDK Login Button -->
