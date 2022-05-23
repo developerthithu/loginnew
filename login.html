@@ -26,8 +26,6 @@
     console.log(response);                   
     if (response.status === 'connected') {
       testAPI(); 
-      postAPI();
-      commentAPI();
     } else if(response.status === 'not_authorized'){                                 
       document.getElementById('status').innerHTML = 'Please log ' +
         'into this webpage.';
@@ -54,75 +52,10 @@ function testAPI() {
     FB.api(
     '/me/accounts',
     'GET',
-    {"fields":"id,global_brand_page_name,posts{permalink_url}"},
+    {"fields":"id,global_brand_page_name"},
     function(response) {
-      getFanPages(response);
-      getPost(response.data[0].posts);
-      insertPage(response);
-    });
-  }
-   function postAPI() {                     
-    console.log('get posts comments');
-    FB.api(
-    '100699045974748',
-    'GET',
-    {"fields":"id,name,posts{comments,permalink_url}"},
-    function(response) {
-      console.log('post api');
       console.log(response);
     });
-  }
-  function commentAPI(){
-    FB.api(
-    '/100699045974748_110761358301850',
-    'GET',
-    {"fields":"comments"},
-    function(response) {
-      // Insert your code here
-      console.log('Lấy thông tin comment');
-      console.log(response);
-    });
-  }
-  function getFanPages(page){
-    console.log(page);
-    countPage = page.data.length;
-    idPage = page.data[0].id;
-    namePage_1 = page.data[0].global_brand_page_name;
-    countPost_1 = page.data[0].posts.length;
-    idPost_1 = page.data[0].posts.data[0].id
-    showInforPage = `
-          <P>Số fanpage: ${countPage}</P>
-          <ul class="">
-            <li class="">ID fanpage: ${idPage}</li>
-            <li class="">Tên fanpage: ${namePage_1}</li>
-            <li class="">Tổng số bài đăng: ${countPost_1} của fanpage ${namePage_1}</li>
-            <li class="">id bài đăng thứ nhất: ${idPost_1} của fanpage ${namePage_1}</li>
-          </ul>
-        `;
-    document.getElementById('getNamePage').innerHTML = showInforPage;
-  }
-  function getPost(post){
-    console.log(post);
-    idPost = post.data[0].id
-    dayPost = post.data[0].created_time;
-    contentPost = post.data[0].message;
-    linkPost = post.data[0].permalink_url;
-    console.log(post.data[0].comments);
-    showInforPost = `
-          <P>Thông tin về bài đăng</P>
-          <ul class="">
-            <li class="">ID bài đăng: ${idPost}</li>
-            <li class="">Ngày đăng: ${dayPost}</li>
-            <li class="">Nội dung bài đăng: ${contentPost}</li>
-            <li class="">link bài đăng: ${linkPost}</li>
-          </ul>
-        `;
-      document.getElementById('showPost').innerHTML = showInforPost;
-  }
-  // insert button fanpage
-  function insertPage(page){
-    console.log('vòng lập fanpage');
-    console.log(page);
   }
 </script
 <!-- The JS SDK Login Button -->
