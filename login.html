@@ -33,7 +33,11 @@
       document.getElementById('status').innerHTML = 'người dùng chưa đăng nhập vào facebook';
     }
   }
-  
+   function checkLoginState() {              
+    FB.getLoginStatus(function(response) {   
+      statusChangeCallback(response);
+    });
+  }
   (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
@@ -42,11 +46,7 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
   
- function checkLoginState() {              
-    FB.getLoginStatus(function(response) {   
-      statusChangeCallback(response);
-    });
-  }
+
 function testAPI() {                      
     console.log('get fanpage, content');
     FB.api(
