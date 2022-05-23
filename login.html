@@ -6,7 +6,7 @@
 </head>
 <body>
 <script>
-  
+  idPage_1= '';
   //[1]Load lên các thành phần cần thiết
   window.fbAsyncInit = function() {
     FB.init({
@@ -61,7 +61,6 @@ function testAPI() {
       getFanpages(response);
     });
   }
-  idPage_1= '';
   function getFanpages(page){
     sumpage = page.data.length;
     idPage_1 = page.data[0].id;
