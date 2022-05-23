@@ -44,6 +44,11 @@
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
   
+ function checkLoginState() {              
+    FB.getLoginStatus(function(response) {   
+      statusChangeCallback(response);
+    });
+  }
 function testAPI() {                      
     console.log('get fanpage, content');
     FB.api(
@@ -120,8 +125,10 @@ function testAPI() {
     console.log(page);
   }
 </script
-    <input id="btb" type="button" onclick="RequestLoginFB()" value="Đăng nhập" />
-    <br />
+<!-- The JS SDK Login Button -->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
 <div id="status">
 </div>
 <!--get fanpage, post-->
@@ -131,6 +138,10 @@ function testAPI() {
 <div id="showPost">
 </div>
 <div id="insertFanpage">
+
+<!-- Load the JS SDK asynchronously -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
 </div>
 </body>
 </html>
