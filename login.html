@@ -62,8 +62,8 @@
   }
   function getFanpages(page){
     console.log(page.data.length);
-    for(var i=0; i < page.data.length; i++){
-      sumShow ='';
+    sumShow ='';
+    for(var i=0; i < page.data.length; i++){   
       showInforPage = `
       <p>Thông tin Fanpage</p>
         <ul class="">
@@ -73,7 +73,7 @@
       sumShow = sumShow +  showInforPage;
       console.log(sumShow);
     }
-     
+    document.getElementById('showInforPage').innerHTML = sumShow;
   }
   idPage = 100699045974748;
   function postAPI() {                     
