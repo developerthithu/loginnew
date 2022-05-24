@@ -64,9 +64,9 @@ function testAPI() {
   function postAPI() {                     
     console.log('get post fanpage');
     FB.api(
-    '/'+ idPage +'',
+    '/'+ idPage +'/posts',
     'GET',
-    {"fields":"posts{id,message,created_time,full_picture,permalink_url}"},
+    {"fields":"id,message,created_time,full_picture,permalink_url"},
     function(response) {
       // Insert your code here
       console.log(response);
@@ -92,6 +92,7 @@ function testAPI() {
     document.getElementById('showInforPage').innerHTML = showInforPage;
   }
   function getPosts(post){
+    sumPost = post.data.length;
     idPost_1 = post.data[0].id;
     mesPost_1 = post.data[0].message;
     dayPost_1 = post.data[0].created_time;
@@ -104,6 +105,7 @@ function testAPI() {
     showInforPost = `
       <p>Thông tin bài đăng của fanpage có id: ${idPage}</p>
         <ul class="">
+          <li class="">Tổng số bài đăng: ${sumPost}</li>
           <li class="">Bài đăng 1: </li>
           <li class=""> id: ${idPost_1} </li>
           <li class=""> Nội dung:${mesPost_1} </li>
