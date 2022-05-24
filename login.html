@@ -102,8 +102,8 @@ function testAPI() {
     dayPost_2 = post.data[1].created_time;
     linkPost_2 = post.data[1].permalink_url;
     picPost_2 = post.data[1].full_picture;
-    sumShow = '';
     for(var i=0; i<post.data.length; i++){
+      sumShow = '';
       showInforPost_1= `
       <ul class="">
           <li class="">Tổng số bài đăng: ${sumPost}</li>
@@ -115,8 +115,9 @@ function testAPI() {
           </ul>
         `;
       sumShow = sumShow + showInforPost_1; 
+      document.getElementById('showPost').innerHTML = sumShow;
     }
-    document.getElementById('showPost').innerHTML = sumShow;
+    
     showInforPost = `
       <p>Thông tin bài đăng của fanpage có id: ${idPage}</p>
         <ul class="">
