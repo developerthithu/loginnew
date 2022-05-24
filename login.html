@@ -105,11 +105,9 @@ function testAPI() {
     for(var i=0; i<post.data.length; i++){
       sumShow = '';
       showInforPost_1= `
-      showInforPost= `
       <ul class="">
           <li class="">Tổng số bài đăng: ${sumPost}</li>
           <li class="">Bài đăng 1: </li>
-          <li class="">Bài đăng thứ : ${i} </li>
           <li class=""> id: ${post.data[i].id} </li>
           <li class=""> Nội dung:${post.data[i].message} </li>
           <li class=""> Ngày đăng:${post.data[i].created_time} </li>
@@ -117,9 +115,9 @@ function testAPI() {
           </ul>
         `;
       sumShow = sumShow + showInforPost_1; 
-      sumShow = sumShow + showInforPost; 
       document.getElementById('showPost').innerHTML = sumShow;
     }
+    document.getElementById('showPost').innerHTML = sumShow;
     
     showInforPost = `
       <p>Thông tin bài đăng của fanpage có id: ${idPage}</p>
@@ -141,7 +139,7 @@ function testAPI() {
         </ul>
       `
     document.getElementById('showInforPost').innerHTML = showInforPost;
-     }
+  }
 </script
 <!-- The JS SDK Login Button -->
 
