@@ -62,16 +62,17 @@
   }
   function getFanpages(page){
     for(var i=0; i<page.data.length; i++){
-      sumPage ='';
+      sumShow ='';
       showInforPage = `
       <p>Thông tin Fanpage</p>
         <ul class="">
-          <li class="">fanpage {$i}: Có id: ${page.data[i].id} tên fanpage:${page.data[0].global_brand_page_name} link <a href="${page.data[0].link}">Đi đến trang fanpage</a></li>
+          <li class="">fanpage {$i}: Có id: ${page.data[i].id} tên fanpage:${page.data[i].global_brand_page_name} link <a href="${page.data[i].link}">Đi đến trang fanpage</a></li>
         </ul>
       `;
-      sumPage = sumPage +  showInforPage;
+      sumShow = sumPage +  showInforPage;
     }
-     console.log(sumPage);
+    console.log(sumShow);
+    document.getElementById('showInforPage').innerHTML = sumShow;
   }
   idPage = 100699045974748;
   function postAPI() {                     
