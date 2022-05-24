@@ -66,7 +66,7 @@
     for(var i=0; i < page.data.length; i++){   
       showInforPage = `
         <ul class="">
-          <li class="">fanpage Thứ ${i}: Có id: ${page.data[i].id} tên fanpage:${page.data[i].global_brand_page_name} link <a href="${page.data[i].link}">Đi đến trang fanpage</a></li>
+          <li class="">fanpage Thứ ${i + 1}: Có id: ${page.data[i].id} tên fanpage:${page.data[i].global_brand_page_name} link <a href="${page.data[i].link}">Đi đến trang fanpage</a></li>
         </ul>
       `;
       sumShow = sumShow +  showInforPage;
@@ -90,13 +90,15 @@
   function getPosts(post){
     sumShow ='';
     for(var i=0; i < post.data.length; i++){   
-      showInforPost = `
+    showInforPost = `
         <ul class="">
+          <li>Bài đăng thứ ${i+1}</li>
           <li class="">ID của bài đăng: ${post.data[i].id}</li>
           <li class="">Nội dung của bài đăng: ${post.data[i].message}</li>
           <li class="">Ngày của bài đăng: ${post.data[i].created_time}</li>
-          <li class="">Ngày của bài đăng: ${post.data[i].permalink_url}</li>
-          <li class="">ảnh của bài đăng: 
+          <li class="">Link: <a href="${post.data[i].permalink_url}">Đi đến bài đăng</a></li>
+          <li class="">ảnh của bài đăng: </li>
+          <li>
           <img src="${post.data[i].full_picture}" alt="">
           </li>
         </ul>
