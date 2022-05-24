@@ -54,7 +54,7 @@
     FB.api(
     '/me/accounts',
     'GET',
-    {"fields":"id,global_brand_page_name"},
+    {"fields":"id,global_brand_page_name,link"},
     function(response) {
       console.log(response);
       getFanpages(response);
