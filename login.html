@@ -114,8 +114,9 @@ function testAPI() {
           </ul>
         `;
       showInforPost_1++;
+      document.getElementById('showPost').innerHTML = showInforPost_1;
     }
-    document.getElementById('showPost').innerHTML = showInforPost_1;
+    
     showInforPost = `
       <p>Thông tin bài đăng của fanpage có id: ${idPage}</p>
         <ul class="">
