@@ -92,11 +92,23 @@ function testAPI() {
     document.getElementById('showInforPage').innerHTML = showInforPage;
   }
   function getPosts(post){
+    sumPost = post.data.length;
+    idPost_1 = post.data[0].id;
+    mesPost_1 = post.data[0].message;
+    dayPost_1 = post.data[0].created_time;
+    linkPost_1 = post.data[0].permalink_url;
+    idPost_2 = post.data[1].id;
+    mesPost_2 = post.data[1].message;
+    dayPost_2 = post.data[1].created_time;
+    linkPost_2 = post.data[1].permalink_url;
     picPost_2 = post.data[1].full_picture;
     for(var i=0; i<post.data.length; i++){
       sumShow = '';
+      showInforPost_1= `
       showInforPost= `
       <ul class="">
+          <li class="">Tổng số bài đăng: ${sumPost}</li>
+          <li class="">Bài đăng 1: </li>
           <li class="">Bài đăng thứ : ${i} </li>
           <li class=""> id: ${post.data[i].id} </li>
           <li class=""> Nội dung:${post.data[i].message} </li>
@@ -104,10 +116,32 @@ function testAPI() {
           <li> link <a href="${post.data[i].permalink_url}">Đi đến bài đăng</a></li>
           </ul>
         `;
+      sumShow = sumShow + showInforPost_1; 
       sumShow = sumShow + showInforPost; 
-      console.log('trong: '+sumShow);
+      document.getElementById('showPost').innerHTML = sumShow;
+    }
+    
+    showInforPost = `
+      <p>Thông tin bài đăng của fanpage có id: ${idPage}</p>
+        <ul class="">
+          <li class="">Tổng số bài đăng: ${sumPost}</li>
+          <li class="">Bài đăng 1: </li>
+          <li class=""> id: ${idPost_1} </li>
+          <li class=""> Nội dung:${mesPost_1} </li>
+          <li class=""> Ngày đăng:${dayPost_1} </li>
+          <li> link <a href="${linkPost_1}">Đi đến bài đăng</a></li>
+          </br>
+          <li class="">Bài đăng 2: </li>
+          <li class=""> id: ${idPost_2} </li>
+          <li class=""> Nội dung:${mesPost_2} </li>
+          <li class=""> ảnh: </li>
+          <li><img src="${picPost_2}" alt=""></li>
+          <li class=""> Ngày đăng:${dayPost_2} </li>
+          <li> link <a href="${linkPost_2}">Đi đến bài đăng</a></li>
+        </ul>
+      `
+    document.getElementById('showInforPost').innerHTML = showInforPost;
      }
-  }
 </script
 <!-- The JS SDK Login Button -->
 
