@@ -59,6 +59,18 @@ function testAPI() {
       getFanpages(response);
     });
   }
+  idPage = 100699045974748;
+  function postAPI() {                     
+    console.log('get post fanpage');
+    FB.api(
+    '/'+ idPage +'',
+    'GET',
+    {"fields":"posts{id,message,created_time,full_picture}"},
+    function(response) {
+      // Insert your code here
+      console.log(response);
+    });
+  }
   function getFanpages(page){
     sumpage = page.data.length;
     idPage_1 = page.data[0].id;
