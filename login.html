@@ -92,7 +92,6 @@ function testAPI() {
     document.getElementById('showInforPage').innerHTML = showInforPage;
   }
   function getPosts(post){
-    sumPost = post.data.length;
     picPost_2 = post.data[1].full_picture;
     for(var i=0; i<post.data.length; i++){
       sumShow = '';
@@ -108,7 +107,6 @@ function testAPI() {
       sumShow = sumShow + showInforPost; 
       console.log('trong: '+sumShow);
      }
-    console.log('ngoai: '+sumShow);
   }
 </script
 <!-- The JS SDK Login Button -->
