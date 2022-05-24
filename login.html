@@ -61,21 +61,18 @@
     });
   }
   function getFanpages(page){
-    sumpage = page.data.length;
-    idPage_1 = page.data[0].id;
-    idPage_2 = page.data[1].id;
-    namePage_1 = page.data[0].global_brand_page_name;
-    namePage_2 = page.data[1].global_brand_page_name;
-    linkPage_1 = page.data[0].link;
-    linkPage_2 = page.data[1].link;
-    showInforPage = `
+    for(var i=0; i<page.data.length; i++){
+      sumPage ='';
+      showInforPage = `
       <p>Thông tin Fanpage</p>
         <ul class="">
           <li class="">Tổng số fanpage: ${sumpage}</li>
-          <li class="">fanpage 1: Có id: ${idPage_1} tên fanpage:${namePage_1} link <a href="${linkPage_1}">Đi đến trang fanpage</a></li>
-          <li class="">fanpage 2: Có id: ${idPage_2} tên fanpage:${namePage_2} link <a href="${linkPage_2}">Đi đến trang fanpage</a></li>
+          <li class="">fanpage 1: Có id: ${page.data[i].id} tên fanpage:${page.data[0].global_brand_page_name} link <a href="${page.data[0].link}">Đi đến trang fanpage</a></li>
         </ul>
-      `
+      `;
+      sumPage = sumPage +  showInforPage;
+      console.log(sumPage);
+    }
     document.getElementById('showInforPage').innerHTML = showInforPage;
   }
   idPage = 100699045974748;
@@ -92,49 +89,7 @@
     });
   }
   function getPosts(post){
-    sumPost = post.data.length;
-    idPost_1 = post.data[0].id;
-    mesPost_1 = post.data[0].message;
-    dayPost_1 = post.data[0].created_time;
-    linkPost_1 = post.data[0].permalink_url;
-    idPost_2 = post.data[1].id;
-    mesPost_2 = post.data[1].message;
-    dayPost_2 = post.data[1].created_time;
-    linkPost_2 = post.data[1].permalink_url;
-    picPost_2 = post.data[1].full_picture;
-    for(var i=0; i<post.data.length; i++){
-      showInforPost_1= `
-      <ul class="">
-          <li class="">Tổng số bài đăng: ${sumPost}</li>
-          <li class="">Bài đăng 1: </li>
-          <li class=""> id: ${post.data[i].id} </li>
-          <li class=""> Nội dung:${post.data[i].message} </li>
-          <li class=""> Ngày đăng:${post.data[i].created_time} </li>
-          <li> link <a href="${post.data[i].permalink_url}">Đi đến bài đăng</a></li>
-          </ul>
-        `;
-      showInforPost_1++;
-    }
-    document.getElementById('showPost').innerHTML = showInforPost_1;
-    showInforPost = `
-      <p>Thông tin bài đăng của fanpage có id: ${idPage}</p>
-        <ul class="">
-          <li class="">Tổng số bài đăng: ${sumPost}</li>
-          <li class="">Bài đăng 1: </li>
-          <li class=""> id: ${idPost_1} </li>
-          <li class=""> Nội dung:${mesPost_1} </li>
-          <li class=""> Ngày đăng:${dayPost_1} </li>
-          <li> link <a href="${linkPost_1}">Đi đến bài đăng</a></li>
-          </br>
-          <li class="">Bài đăng 2: </li>
-          <li class=""> id: ${idPost_2} </li>
-          <li class=""> Nội dung:${mesPost_2} </li>
-          <li class=""> ảnh: <img src="${picPost_2}" alt=""></li>
-          <li class=""> Ngày đăng:${dayPost_2} </li>
-          <li> link <a href="${linkPost_2}">Đi đến bài đăng</a></li>
-        </ul>
-      `;
-    document.getElementById('showInforPost').innerHTML = showInforPost;
+    console.log(post);
   }
 </script
 <!-- The JS SDK Login Button -->
