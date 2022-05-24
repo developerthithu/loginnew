@@ -53,7 +53,7 @@ function testAPI() {
     FB.api(
     '/me/accounts',
     'GET',
-    {"fields":"id,global_brand_page_name"},
+    {"fields":"id,global_brand_page_name,link"},
     function(response) {
       console.log(response);
       getFanpages(response);
@@ -65,12 +65,14 @@ function testAPI() {
     idPage_2 = page.data[1].id;
     namePage_1 = page.data[0].global_brand_page_name;
     namePage_2 = page.data[1].global_brand_page_name;
+    linkPage_1 = page.data[0].link;
+    linkPage_2 = page.data[1].link;
     showInforPage = `
       <p>Thông tin Fanpage</p>
         <ul class="">
           <li class="">Tổng số fanpage: ${sumpage}</li>
-          <li class="">fanpage 1: Có id: ${idPage_1} tên fanpage:${namePage_1}</li>
-          <li class="">fanpage 2: Có id: ${idPage_2} tên fanpage:${namePage_2}</li>
+          <li class="">fanpage 1: Có id: ${idPage_1} tên fanpage:${namePage_1} link: <a>${linkPage_1}</a></li>
+          <li class="">fanpage 2: Có id: ${idPage_2} tên fanpage:${namePage_2} link: <a>${linkPage_2}</a></li>
         </ul>
       `
     document.getElementById('showInforPage').innerHTML = showInforPage;
